@@ -20,3 +20,11 @@ EOF
 curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION="$INSTALL_RKE2_VERSION" INSTALL_RKE2_TYPE="$INSTALL_RKE2_TYPE" sh -
 systemctl enable rke2-agent.service
 systemctl start rke2-agent.service
+
+# Get the server's IP address
+SERVER_IP=$(hostname -I | awk '{print $1}')
+
+# Print success message
+echo "RKE2 installation completed successfully!"
+echo "Server IP: $SERVER_IP"
+echo "hostname: $hostname"
